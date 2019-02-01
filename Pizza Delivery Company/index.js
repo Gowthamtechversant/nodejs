@@ -13,7 +13,7 @@ var fs = require('fs');
 var handlers = require('./lib/handlers');
 var helpers = require('./lib/helpers');
 
- // Instantiate the HTTP server
+// Instantiate the HTTP server
 var httpServer = http.createServer(function(req,res){
   unifiedServer(req,res);
 });
@@ -93,7 +93,7 @@ var unifiedServer = function(req,res){
         res.setHeader('Content-Type', 'application/json');
         res.writeHead(statusCode);
         res.end(payloadString);
-        //console.log(trimmedPath,statusCode);
+        console.log(trimmedPath,statusCode);
       });
 
   });
@@ -101,6 +101,8 @@ var unifiedServer = function(req,res){
 
 // Define the request router
 var router = {
-  'ping' : handlers.ping,
-  'users' : handlers.users
+  'login' : handlers.login,
+  'login/items' : handlers.login,
+  'user' : handlers.user,
+  'orders' : handlers.orders,
 };
